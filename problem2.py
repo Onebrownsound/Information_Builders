@@ -3,7 +3,7 @@ import itertools
 def crossing(left,right,raft,direction):
     if (direction==-1): #happens in the base case
         #load up raft for the first time with all combinations and call crossing
-        combinations=itertools.combinations(left,1)+itertools.combinations(left,2)
+        combinations=list(itertools.combinations(left,1))+list(itertools.combinations(left,2))
         #combinations is a list of all possible combinations of 1 and 2 party
         for combo in combinations:
             crossing(list(set(left)-set(combo)),right,combo,0)
@@ -22,10 +22,10 @@ def crossing(left,right,raft,direction):
             raft=[] #empties the raft
             if (len(right)==8): #check to see if all people are on the right side
                 return "Problem Solved";
-            combinations=itertools.combinations(right,1)+itertools.combinations(right,2)
+            combinations=list(itertools.combinations(right,1))+list(itertools.combinations(right,2))
             #combinations is a list of all possible combinations of 1 and 2 party
             for combo in combinations:
-                crossing(list(set(right)-set(combo)),right,combo,1)
+                crossing(left,list(set(right)-set(combo)),combo,1)
         else:
             left=left+raft #dump the raft onto the left side
             raft=[]
