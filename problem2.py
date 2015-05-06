@@ -33,17 +33,7 @@ def crossing(left,right,raft,direction):
             #combinations is a list of all possible combinations of 1 and 2 party
             for combo in combinations:
                 crossing(list(set(left)-set(combo)),right,combo,0)
-            
-        
-        
-
-              
     
-    
-    
-
-
-
 
 
 def main():
@@ -53,4 +43,7 @@ def main():
     movelist=[]
     direction= -1#direction 0 represents going towards the right and direction 1 represents going towards the left
     print(crossing(left,right,raft,direction))
-        
+
+
+if __name__=="__main__":
+    main();
